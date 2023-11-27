@@ -1,0 +1,101 @@
+#root {
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+
+.calculator {
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 2px solid #151414;
+  border-radius: 30px;
+  text-align: center;
+  background-color:rgb(42, 36, 36);
+  
+}
+
+input {
+  width: 90%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 18px;
+  padding-right: 5px;
+  border-radius: 30px;
+  font-style: italic;
+  
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  margin: 2px;
+  font-size: 18px;
+  color: rgb(227, 219, 219);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border-radius: 20px;
+  font-style: italic;
+
+}
+
+button.operator {
+  background-color: grey;
+}
+
+button.operator.minus {
+  background-color: rgb(87, 79, 79);
+}
+button.operator.plus {
+  background-color: rgb(87, 79, 79);
+}
+
+
+button.operator.multiply {
+  background-color: rgb(87, 79, 79);
+}
+
+button.operator.divide {
+  background-color: rgb(87, 79, 79);
+}
+
+button.clear {
+  background-color: rgb(87, 79, 79);
+}
+
+button.equal {
+  background-color: rgb(87, 79, 79);
+}
+
+button:hover {
+  background-color: brown;
+}
+button.operator.multiply:hover {
+  background-color: brown;
+}
+button.operator.divide:hover{
+  background-color: brown;
+}
+button.operator.minus:hover {
+  background-color: brown;
+}
+
+h1 {
+  border: 2px solid #2c2a2a;
+  border-radius: 30px;
+  text-align: center;
+  background-color: rgb(236, 230, 221);
+  padding: 10px;
+  width: 300px;
+  margin: auto; 
+  color: blue;
+  font-style: italic ;
+
+}
