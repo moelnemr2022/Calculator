@@ -53,10 +53,10 @@ button.operator {
 button.operator.minus {
   background-color: rgb(87, 79, 79);
 }
-button.operator.plus {
-  background-color: rgb(87, 79, 79);
-}
 
+/* button.operator.plus {
+  background-color: rgb(87, 79, 79);
+} */
 
 button.operator.multiply {
   background-color: rgb(87, 79, 79);

@@ -1,8 +1,6 @@
-
-
 import Calculator from './components/Calculator';
 import './components/Calculator.css';
-// import Example from './Example';
+
 
 const App = () => {
   return (
