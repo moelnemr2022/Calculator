@@ -1,16 +1,16 @@
  import { describe, test, expect } from 'vitest';
- import {  render,screen } from '@testing-library/react';
+ import {  render,screen,waitFor } from '@testing-library/react';
  
- //import userEvent from '@testing-library/user-event';
+ import userEvent from '@testing-library/user-event';
 import Calculator from './components/Calculator';
 
 
 describe('Calculator component', () => {
   test('renders minus button', () => {
     render(<Calculator />);
-    let minusButton = screen.getByRole('button', {name: /-/i })
-      expect(minusButton).toBeInTheDocument();
-});
+    const minusButton = screen.getByRole('button', { name: /-/i });
+    expect(minusButton).toBeVisible();
+  });
 
 test('renders plus button', () => {
   render(<Calculator />);
@@ -74,6 +74,110 @@ test('empty input', () => {
   expect (emptyInput).toHaveValue('');
 });
 
+
+  
+
+test('handles plus operation', async () => {
+  render(<Calculator />);
+  
+  const input = screen.getByRole('textbox');
+
+  await userEvent.click(screen.getByText('1'));
+  await userEvent.click(screen.getByText('+'));
+  await userEvent.click(screen.getByText('2'));
+  await userEvent.click(screen.getByText('+'));
+  await userEvent.click(screen.getByText('3'));
+  await userEvent.click(screen.getByText('='));
+
+  // Wait for the result to be displayed
+  await waitFor(() => {
+    expect(input).toHaveValue('6');
+  });
+});
+
+
+test('handles diveded operation', async () => {
+  render(<Calculator />);
+  
+  const input = screen.getByRole('textbox');
+
+  await userEvent.click(screen.getByText('8'));
+  await userEvent.click(screen.getByText('/'));
+  await userEvent.click(screen.getByText('2'));
+  
+  await userEvent.click(screen.getByText('='));
+
+  // Wait for the result to be displayed
+  await waitFor(() => {
+    expect(input).toHaveValue('4');
+  });
+});
+
+test('handles multiply operation', async () => {
+  render(<Calculator />);
+  
+  const input = screen.getByRole('textbox');
+
+  await userEvent.click(screen.getByText('8'));
+  await userEvent.click(screen.getByText('*'));
+  await userEvent.click(screen.getByText('2'));
+  
+  await userEvent.click(screen.getByText('='));
+
+  // Wait for the result to be displayed
+  await waitFor(() => {
+    expect(input).toHaveValue('16');
+  });
+});
+
+test('handles minus operation', async () => {
+  render(<Calculator />);
+  
+  const input = screen.getByRole('textbox');
+
+  await userEvent.click(screen.getByText('9'));
+  await userEvent.click(screen.getByText('-'));
+  await userEvent.click(screen.getByText('2'));
+  
+  await userEvent.click(screen.getByText('='));
+
+  // Wait for the result to be displayed
+  await waitFor(() => {
+    expect(input).toHaveValue('7');
+  });
+});
+
+test('handles multiply operation with wrong result', async () => {
+  render(<Calculator />);
+  
+  const input = screen.getByRole('textbox');
+
+  await userEvent.click(screen.getByText('8'));
+  await userEvent.click(screen.getByText('*'));
+  await userEvent.click(screen.getByText('2'));
+  await userEvent.click(screen.getByText('='));
+
+  // Wait for the result to be displayed
+  await waitFor(() => {
+    expect(input).not.toHaveValue('15');
+  });
+});
+
+test('handles clear result ', async () => {
+  render(<Calculator />);
+  
+  const input = screen.getByRole('textbox');
+
+  await userEvent.click(screen.getByText('8'));
+  await userEvent.click(screen.getByText('*'));
+  await userEvent.click(screen.getByText('2'));
+  await userEvent.click(screen.getByText('='));
+  await userEvent.click(screen.getByText('C'));
+  // Wait for the result to be displayed
+  await waitFor(() => {
+    expect(input).toHaveValue('');
+  });
+});
 
 
 

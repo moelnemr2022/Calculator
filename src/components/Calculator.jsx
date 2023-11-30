@@ -29,7 +29,7 @@ import { useState } from 'react';
           <button onClick={() => handleClick('1')} className="operator" aria-label="1">1</button>
           <button onClick={() => handleClick('4')} className="operator" aria-label="4">4</button>
           <button onClick={() => handleClick('7')} className="operator" aria-label="7">7</button>
-          <button onClick={() => handleClick('+')} className="operator" aria-label="+">+</button>
+          <button onClick={() => handleClick('+')} className="operator plus" aria-label="+">+</button>
         </div>
         <div className="row">
           

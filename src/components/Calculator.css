@@ -1,12 +1,42 @@
+/* @keyframes borderAnimation {
+  0% {
+    box-shadow: 0 0 5px 0 gray;
+  }
+
+  25% {
+    box-shadow: 0 0 15px 5px rgba(203, 136, 12, 0.8); 
+  }
+
+  50% {
+    box-shadow: 0 0 5px 0 rgb(82, 77, 77);
+  }
+
+  75% {
+    box-shadow: 0 0 15px 5px rgba(40, 123, 205, 0.8); 
+  }
+
+  100% {
+    box-shadow: 0 0 5px 0 gray;
+  }
+} */
+
+
 #root {
   text-align: center;
   align-items: center;
   align-content: center;
+  background-color: rgb(167, 163, 163);
+  padding: 10%;
+  border-radius: 20px;
+  
+  border: 5px solid gray;
+  animation: borderAnimation 5s ease-in-out infinite;
+
 }
 
 .calculator {
   width: 300px;
-  margin: 50px auto;
+  margin: 20px auto;
   padding: 20px;
   border: 2px solid #151414;
   border-radius: 30px;
@@ -15,11 +45,13 @@
   
 }
 
+
+
 input {
   width: 90%;
   margin-bottom: 10px;
   padding: 10px;
-  font-size: 18px;
+  font-size: 20px;
   padding-right: 5px;
   border-radius: 30px;
   font-style: italic;
@@ -54,9 +86,9 @@ button.operator.minus {
   background-color: rgb(87, 79, 79);
 }
 
-/* button.operator.plus {
+ button.operator.plus {
   background-color: rgb(87, 79, 79);
-} */
+} 
 
 button.operator.multiply {
   background-color: rgb(87, 79, 79);
@@ -78,24 +110,62 @@ button:hover {
   background-color: brown;
 }
 button.operator.multiply:hover {
-  background-color: brown;
+  background-color: green;
 }
+button.clear:hover {
+  background-color: green;
+}
+
+button.equal:hover {
+  background-color: green;
+}
+
 button.operator.divide:hover{
-  background-color: brown;
+  background-color: green;
 }
 button.operator.minus:hover {
-  background-color: brown;
+  background-color: green;
 }
+button.operator.plus:hover {
+  background-color: green;
+}
+
+
+
+  
 
 h1 {
   border: 2px solid #2c2a2a;
   border-radius: 30px;
   text-align: center;
   background-color: rgb(236, 230, 221);
-  padding: 10px;
+  padding: 20px;
   width: 300px;
-  margin: auto; 
+  margin: auto;
   color: blue;
-  font-style: italic ;
+  font-style: italic;
+  animation: moveUpDown 2s ease-in-out infinite; /* Adjust the duration as needed */
 
 }
+
+
+
+
+
+
+
+
+
+/* 
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px); /* Adjust the distance it moves up */
+  }
+} */
+
+
+
