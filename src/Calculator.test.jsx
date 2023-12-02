@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor} from '@testing-library/react';
 
 import userEvent from '@testing-library/user-event';
 import Calculator from './components/Calculator';
@@ -188,9 +188,11 @@ describe('Calculator component', () => {
   
     await userEvent.click(screen.getByText('5'));
     await userEvent.click(screen.getByText('%'));
+    await userEvent.click(screen.getByText('='));
+
   
     await waitFor(() => {
-      expect(screen.getByRole('textbox')).toHaveValue('5%');
+      expect(screen.getByRole('textbox')).toHaveValue('0.05');
     });
   });
   
@@ -200,6 +202,7 @@ describe('Calculator component', () => {
     await userEvent.click(screen.getByText('3'));
     await userEvent.click(screen.getByText('.'));
     await userEvent.click(screen.getByText('2'));
+    await userEvent.click(screen.getByText('='));
   
     await waitFor(() => {
       expect(screen.getByRole('textbox')).toHaveValue('3.2');
