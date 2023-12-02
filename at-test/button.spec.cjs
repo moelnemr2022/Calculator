@@ -5,9 +5,10 @@ test('Header', async ({ page }) => {
   
   await page.goto('http://localhost:5173/');
   await page.getByRole('heading', { name: 'Calculator' }).click();
-  await expect (page.getByRole('heading', { name: 'Calculator' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Calculator' })).toBeVisible();
 
 });
+
 
 test('addItem one number', async ({ page }) => {
   
@@ -77,5 +78,8 @@ test('clear data', async ({ page }) => {
   await page.getByLabel('C').click();
   await expect (page.getByRole('textbox')).toHaveValue('')
 });
+
+
+
 
  
