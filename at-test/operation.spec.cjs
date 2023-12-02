@@ -203,3 +203,11 @@ test('handles very small numbers', async ({ page }) => {
   await page.getByLabel('=').click();
   await expect(page.getByRole('textbox')).toHaveValue('0.01');
 });
+
+test('test', async ({ page }) => {
+  await page.goto('http://localhost:5173/');
+  await page.getByLabel('(').click();
+  await page.getByLabel('=').click();
+ await expect (page. getByRole('textbox')).toHaveValue('Error')
+ 
+});

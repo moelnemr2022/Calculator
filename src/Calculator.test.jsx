@@ -227,7 +227,7 @@ describe('Calculator component', () => {
   });
   
 
-  test('handles unbalanced parentheses error', async () => {
+  test('handles operation multiply parentheses error', async () => {
     render(<Calculator />);
   
     // Simulate input with unbalanced parentheses
@@ -236,7 +236,7 @@ describe('Calculator component', () => {
     await userEvent.click(screen.getByText('('));
     await userEvent.click(screen.getByText(')'));
     
-    userEvent.click(screen.getByText('='));
+    await userEvent.click(screen.getByText('='));
   
     // Check if the input displays the error message
     await waitFor(() => {
@@ -245,5 +245,33 @@ describe('Calculator component', () => {
   });
 
 
+
+  test('handles unbalanced left parentheses error', async () => {
+    render(<Calculator />);
+  
+    // Simulate input with unbalanced parentheses
+  
+    await userEvent.click(screen.getByText('('));
+    await userEvent.click(screen.getByText('='));
+  
+    // Check if the input displays the error message
+    await waitFor(() => {
+      expect(screen.getByRole('textbox')).toHaveValue('Error');
+    });
+  });
+
+  test('handles unbalanced right parentheses error', async () => {
+    render(<Calculator />);
+  
+    // Simulate input with unbalanced parentheses
+  
+    await userEvent.click(screen.getByText(')'));
+    await userEvent.click(screen.getByText('='));
+  
+    // Check if the input displays the error message
+    await waitFor(() => {
+      expect(screen.getByRole('textbox')).toHaveValue('Error');
+    });
+  });
   
 })
