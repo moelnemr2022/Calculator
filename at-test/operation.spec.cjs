@@ -4,7 +4,7 @@ const { test, expect } = require('@playwright/test');
 
 test('adding plus operation with 2 numbers', async ({ page }) => {
   
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('5').click();
   await page.getByLabel('+').click();
   await page.getByLabel('4').click();
@@ -15,7 +15,7 @@ test('adding plus operation with 2 numbers', async ({ page }) => {
 
 test('adding plus numbers with different result', async ({ page }) => {
   
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('5').click();
   await page.getByLabel('+').click();
   await page.getByLabel('4').click();
@@ -26,7 +26,7 @@ test('adding plus numbers with different result', async ({ page }) => {
 
 test('adding minus operation with 2 numbers', async ({ page }) => {
   
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('6').click();
   await page.getByLabel('-').click();
   await page.getByLabel('2').click();
@@ -37,7 +37,7 @@ test('adding minus operation with 2 numbers', async ({ page }) => {
 
 test('adding minus operation with different result', async ({ page }) => {
   
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('6').click();
   await page.getByLabel('-').click();
   await page.getByLabel('2').click();
@@ -48,7 +48,7 @@ test('adding minus operation with different result', async ({ page }) => {
 
 test('adding multiply operation with 2 numbers', async ({ page }) => {
   
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('6').click();
   await page.getByLabel('*').click();
   await page.getByLabel('2').click();
@@ -59,7 +59,7 @@ test('adding multiply operation with 2 numbers', async ({ page }) => {
 
 test('adding multiply operation with different result', async ({ page }) => {
   
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('6').click();
   await page.getByLabel('*').click();
   await page.getByLabel('2').click();
@@ -69,7 +69,7 @@ test('adding multiply operation with different result', async ({ page }) => {
 });
 
 test('adding divide operation with 2 numbers', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('1').click();
   await page.getByLabel('0').click();
   await page.getByLabel('/').click();
@@ -80,7 +80,7 @@ test('adding divide operation with 2 numbers', async ({ page }) => {
 
 
 test('adding divide operation with different result', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('1').click();
   await page.getByLabel('0').click();
   await page.getByLabel('/').click();
@@ -91,7 +91,7 @@ test('adding divide operation with different result', async ({ page }) => {
 
 
 test('multy operation', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('4').click();
   await page.getByLabel('*').click();
   await page.getByLabel('4').click();
@@ -111,7 +111,7 @@ test('multy operation', async ({ page }) => {
 
 
 test('clear data', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('3').click();
   await page.getByLabel('*').click();
   await page.getByLabel('6').click();
@@ -129,7 +129,7 @@ test('clear data', async ({ page }) => {
 
 
 test('clear data with wrong result', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('3').click();
   await page.getByLabel('*').click();
   await page.getByLabel('6').click();
@@ -146,7 +146,7 @@ test('clear data with wrong result', async ({ page }) => {
 });
 
 test('handles parentheses ,% and dot operation', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('1').click();
   await page.getByLabel('0').click();
   await page.getByLabel('.').click();
@@ -165,7 +165,7 @@ test('handles parentheses ,% and dot operation', async ({ page }) => {
 });
 
 test('test error case', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('3').click();
   await page.getByLabel('*').click();
   await page.getByLabel('(').click();
@@ -175,7 +175,7 @@ test('test error case', async ({ page }) => {
 });
 
 test('handles division by zero error', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('5').click();
   await page.getByLabel('/').click();
   await page.getByLabel('0').click();
@@ -184,7 +184,7 @@ test('handles division by zero error', async ({ page }) => {
 });
 
 test('handles very large numbers', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('9').click();
   await page.getByLabel('0').click();
   await page.getByLabel('*').click();
@@ -195,7 +195,7 @@ test('handles very large numbers', async ({ page }) => {
 });
 
 test('handles very small numbers', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('0').click();
   await page.getByLabel('.').click();
   await page.getByLabel('0').click();
@@ -205,7 +205,7 @@ test('handles very small numbers', async ({ page }) => {
 });
 
 test('test', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByLabel('(').click();
   await page.getByLabel('=').click();
  await expect (page. getByRole('textbox')).toHaveValue('Error')
